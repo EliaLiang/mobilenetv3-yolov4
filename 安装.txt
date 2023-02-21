@@ -1,0 +1,62 @@
+1、
+python3.7安装路径：E:\python\python3.7
+检查是否安装成功
+
+2、
+pycharm2019安装路径：E:\pycharm\pycharm2019\PyCharm 2019.3.3
+vmoptions文档尾部添加：
+-javaagent:E:\pycharm\pycharm2019\PyCharm 2019.3.3\bin\jetbrains-agent.jar
+
+3、
+anaconda安装路径：E:\anaconda\anaconda\
+检查是否安装成功
+
+4、
+对应CSDN和哔哩哔哩安装配置
+GPU版本安装
+   https://blog.csdn.net/weixin_44791964/article/details/106037141
+CPU版本安装
+   https://blog.csdn.net/weixin_44791964/article/details/120655098?spm=1001.2014.3001.5501
+哔哩哔哩
+   https://www.bilibili.com/video/BV1Q54y1D7vj?p=2
+
+4.1、
+安装cuda
+安装路径：     C:\Users\BFGYDX\AppData\Local\Temp\CUDA
+安装后根目录   C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0
+
+4.2、
+配置pytorch环境（虚拟环境Python=3.6） ————多配几个，一个网络用一个，互不干扰（pytorch12345）
+ 
+torch：
+  E:
+  CD E:\torch
+  pip install torch-1.2.0-cp36-cp36m-win_amd64.whl
+  pip install torchvision-0.4.0-cp36-cp36m-win_amd64.whl
+
+  https://blog.csdn.net/chenhepg/article/details/105129113   （创建，激活，退出，删除虚拟环境）
+（可以开始新建更多的虚拟环境）——（每个新建的虚拟环境都需要激活，再piptorch和torchvision!!!）
+
+4.3
+新建虚拟环境报错 ————Collecting package metadata (current_repodata.json): failed
+
+CondaHTTPError: HTTP 000 CONNECTION FAILED for url <http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64/current_repodata.json>
+————https://www.cnblogs.com/tianlang25/p/12433025.html
+————https://blog.csdn.net/qq_45504119/article/details/104889949
+
+（只能说多重启，多恢复默认重新换源几次，然后自己就可以新建了！！！）
+conda create -n pytorch3 python=3.6
+
+——————YOLOv4对应pytorch1，mobile对应pytorch2，faster对应pytorch3，SSD对应pytorch4，pytorch5备用
+
+5.
+from PIL import Image——报错
+——pip install image和8.4的pillow后，解决，但pillow要求是8.2——继续卸载8.4，重新安装8.2，没报错了
+ImportError: numpy.core.multiarray failed to import——报错
+——（百度）uninstall numpy，再重新install
+——网速特慢——ReadTimeoutError:报错——https://blog.csdn.net/sinat_26811377/article/details/99698807
+——用豆瓣源，下载巨快！！
+pip --default-timeout=100 install 库名称 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com 
+
+6、summary.py查看网络结构，参数量——注释部分为up主已经运行得到的参数量结果！！
+  ——需要pip install torchsummary
